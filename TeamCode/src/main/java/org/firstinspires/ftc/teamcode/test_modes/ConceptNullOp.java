@@ -2,11 +2,13 @@
 
 package org.firstinspires.ftc.teamcode.test_modes;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 @TeleOp(name = "Concept: NullOp", group = "Concept")
+@Disabled
 public class ConceptNullOp extends OpMode {
     private final ElapsedTime runtime = new ElapsedTime();
 
