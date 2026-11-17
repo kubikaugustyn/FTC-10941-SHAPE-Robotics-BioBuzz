@@ -34,10 +34,11 @@ public class Constants {
 
     public static PinpointConfig localizerConfig = new PinpointConfig(c -> {
         c.name.set("pinpoint");
-        c.podType.set(GoBildaPinpointDriver.GoBildaOdometryPods.goBILDA_SWINGARM_POD);
+        c.podType.set(GoBildaPinpointDriver.GoBildaOdometryPods.goBILDA_4_BAR_POD);
 
-        c.xPodOffset.set(-7.334219864972933);
-        c.yPodOffset.set(-9.194201371801181);
+        c.xPodOffset.set(5.0d);
+        c.yPodOffset.set(7.0d);
+        c.offsetUnits.set(DistanceUnit.INCH);
 
         c.xPodDirection.set(GoBildaPinpointDriver.EncoderDirection.FORWARD);
         c.yPodDirection.set(GoBildaPinpointDriver.EncoderDirection.FORWARD);
@@ -46,7 +47,7 @@ public class Constants {
         c.offsetUnits.set(DistanceUnit.INCH);
     });
 
-    public static ForesightConfig foresightConfig = new ForesightConfig(c -> {
+    /*public static ForesightConfig foresightConfig = new ForesightConfig(c -> {
         Controller primaryTranslationalForward = Controller.proportional(0.1468530882999736);
         Controller secondaryTranslationalForward = Controller.proportional(0.054258292140051775);
         Controller primaryTranslationalLateral = Controller.proportional(0.24078572916772745);
@@ -68,13 +69,13 @@ public class Constants {
         c.maxAchievableStrafeVelocity.set(68.32912105996647);
         c.naturalForwardDeceleration.set(47.50148685723234);
         c.naturalStrafeDeceleration.set(54.37283717784632);
-    });
+    });*/
 
     public static Follower create(HardwareMap h) {
         return new Follower(
                 new PinpointLocalizer(h, localizerConfig),
                 new Mecanum(h, drivetrainConfig),
-                new Foresight(foresightConfig)
+                null // new Foresight(foresightConfig)
         );
         // return null;
     }
